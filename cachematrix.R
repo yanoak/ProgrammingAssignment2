@@ -1,9 +1,12 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Calculates the inverse of a matrix
+##  and creates a cache of the calculated inverse
+
+
+#################################################################
 
 ## Creates a cache of a matrix and its inverse
-##		function returns a list of functions to get and set
-##		the cached value of the matrix and its inverse
+##	function returns a list of functions to get and set
+##	the cached value of the matrix and its inverse
 
 makeCacheMatrix <- function(x = matrix()) {
 
@@ -31,21 +34,22 @@ makeCacheMatrix <- function(x = matrix()) {
 		   getinverse = getinverse)
 }
 
+###################################################################
 
 ## If a cached answer for inverted matrix is available, 
-##		cached answer is returned, otherwise computes inverse
+##	cached answer is returned, otherwise computes inverse
 
 cacheSolve <- function(x, ...) {
       ## Return a matrix that is the inverse of 'x'
 			  
 	  # Tries to get a cached inverted matrix.
-	  #     If there is no cache, getinverse() returns NULL
-	  #     and inverse is assigned NULL
+	  #  If there is no cache, getinverse() returns NULL
+	  #  and inverse is assigned NULL
 	  inverse <- x$getinverse()
 	  
 	  # Checks to see if inverse is not NULL.
-	  #     If inverse is not NULL, cached inverse is retrieved
-	  #     and cacheSolve() returns the cached inverse
+	  #  If inverse is not NULL, cached inverse is retrieved
+	  #  and cacheSolve() returns the cached inverse
 	  if(!is.null(inverse)) {
 		message("getting cached data")
 		return(inverse)
@@ -55,7 +59,7 @@ cacheSolve <- function(x, ...) {
 	  data <- x$get()
 	  
 	  # Since inverse has not been cached, it is calculated
-	  #     using solve() function
+	  #  using solve() function
 	  inverse <- solve(data)
 	  
 	  # Newly calculated inverse is cached
